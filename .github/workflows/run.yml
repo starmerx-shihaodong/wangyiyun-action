@@ -16,15 +16,17 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-    - uses: actions/checkout@v2
-    - name: 初始化Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v4
+
+    - name: 初始化 Python
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.7.1
+        python-version: '3.11'
+
     - name: 签到
       run: |
         pip install -r requirements.txt
-        
+
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
         
